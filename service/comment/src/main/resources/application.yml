@@ -1,1 +1,14 @@
 server.port: 9001
+spring:
+  application:
+    name: kuke-board-comment-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3307/comment
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
