@@ -26,7 +26,7 @@ public class CommentResponse {
         response.articleId = comment.getArticleId();
         response.writerId = comment.getWriterId();
         response.deleted = comment.getDeleted();
-        response.createAt = comment.getCreateAt();
+        response.createAt = comment.getCreatedAt();
 
         return  response;
     }

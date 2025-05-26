@@ -23,7 +23,7 @@ public class Comment {
     private Long articleId; // shard key
     private Long writerId;
     private Boolean deleted;
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     public static Comment create(Long commentId, String content, Long parentCommentId, Long articleId, Long writerId) {
         Comment comment = new Comment();
@@ -33,7 +33,7 @@ public class Comment {
         comment.articleId = articleId;
         comment.writerId = writerId;
         comment.deleted = false;
-        comment.createAt = LocalDateTime.now();
+        comment.createdAt = LocalDateTime.now();
         return comment;
     }
 
