@@ -36,6 +36,10 @@ public class HotArticleListRepository {
         });
     }
 
+    public void remove(Long articleId, LocalDateTime time) {
+        redisTemplate.opsForZSet().remove(generateKey(time), String.valueOf(articleId));
+    }
+
     private String generateKey(LocalDateTime time) {
         return generateKey(TIME_FORMATTER.format(time));
     }
@@ -48,7 +52,7 @@ public class HotArticleListRepository {
         return redisTemplate.opsForZSet()
                 .reverseRangeWithScores(generateKey(dateStr), 0, -1).stream()
                 .peek(tuple -> log.info("[HotArticleListRepository.readAll] articleId={}, score={}", tuple.getValue(), tuple.getScore()))
-                .map(ZSetOperations.TypedTuple::getValue)
+                .map(ZSetOperations.TypedTuple::getValue) // TypedTuple 객체에서 값(value) 만 추출
                 .map(Long::valueOf)
                 .toList();
     }
