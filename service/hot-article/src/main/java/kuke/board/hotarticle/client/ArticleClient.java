@@ -1,6 +1,7 @@
 package kuke.board.hotarticle.client;
 
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,6 +43,7 @@ public class ArticleClient {
         }
     }
 
+    @Getter
     public static class ArticleResponse {
         private Long articleId;
         private String title;
