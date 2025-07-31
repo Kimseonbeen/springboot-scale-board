@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface OutboxRepository extends JpaRepository<Outbox, Long> {
     // 이벤트 주기적 폴링 메서드
-    List<Outbox> findAllByShardKeyAndCreateAtLessThanEqualOrderByCreatedAtAsc(
+    List<Outbox> findAllByShardKeyAndCreatedAtLessThanEqualOrderByCreatedAtAsc(
             Long shardKey,
             LocalDateTime from,
             Pageable pageable

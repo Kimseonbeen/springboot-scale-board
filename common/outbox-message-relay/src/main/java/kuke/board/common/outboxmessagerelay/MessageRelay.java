@@ -63,7 +63,7 @@ public class MessageRelay {
         AssignedShard assignedShard = messageRelayCoordinator.assignedShards();
         log.info("[MessageRelay.publishPendingEvent assignedShard size={}", assignedShard.getShards().size());
         for (Long shard : assignedShard.getShards()) {
-            List<Outbox> outboxes = outboxRepository.findAllByShardKeyAndCreateAtLessThanEqualOrderByCreatedAtAsc(
+            List<Outbox> outboxes = outboxRepository.findAllByShardKeyAndCreatedAtLessThanEqualOrderByCreatedAtAsc(
                     shard,
                     LocalDateTime.now().minusSeconds(10),
                     Pageable.ofSize(100)

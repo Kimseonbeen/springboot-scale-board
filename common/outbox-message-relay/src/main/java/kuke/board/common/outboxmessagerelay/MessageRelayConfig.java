@@ -57,7 +57,6 @@ public class MessageRelayConfig {
     // 싱글 스레드로 순차 처리하여 중복 전송을 방지함
     @Bean
     public Executor messageRelayPublishPendingEventExecutor() {
-        return Executors.newSingleThreadExecutor(); // 싱글스레드로만 미 전송 이벤트를 전송하겠음
+        return Executors.newSingleThreadScheduledExecutor(); // 싱글스레드로만 미 전송 이벤트를 전송하겠음
     }
-
 }
