@@ -16,8 +16,8 @@ public class HotArticleController {
 
     @GetMapping("/v1/hot-articles/articles/date/{dateStr}")
     public List<HotArticleResponse> readAll(
-            @PathVariable("dataStr") String dataStr
+            @PathVariable("dateStr") String dateStr
     ) {
-        return hotArticleService.readAll(dataStr);
+        return hotArticleService.readAll(dateStr);
     }
 }

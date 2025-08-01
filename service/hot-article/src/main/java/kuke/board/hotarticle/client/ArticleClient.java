@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class ArticleClient {
     private RestClient restClient;
 
-    @Value("${endpoints.kuke-board-article-service.url")
+    @Value("${endpoints.kuke-board-article-service.url}")
     private String articleServiceUrl;
 
     // 필드 주입 (@Value) 시점 이후 안전하게 초기화하기 위해 필요

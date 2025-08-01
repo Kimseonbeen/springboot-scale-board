@@ -50,6 +50,7 @@ public class HotArticleService {
 
     public List<HotArticleResponse> readAll(String dateStr) {
         // yyyyMMdd
+        List<Long> longs = hotArticleListRepository.readAll(dateStr);
         return hotArticleListRepository.readAll(dateStr).stream()
                 .map(articleClient::read)
                 .filter(Objects::nonNull)
